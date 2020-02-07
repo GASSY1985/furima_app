@@ -1,19 +1,24 @@
+%head
+  %title.__web-inspector-hide-shortcut__ 会員情報入力 - スマホでかんたん フリマアプリ
+
 .account-page
   .account-page__header
     .account-page__header__banner
-      = link_to ""
+      %a{:href => "https://www.mercari.com/jp/"}
+        %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?73731125"}/
+      -# バナーの反映方法調べる
   .account-page__main
     .account-page__main--head
       会員情報入力
     .account-page__main--inner
-      .account-page__main--innner__content
+      .account-page__main--inner__content
         = form_with model: @users, local: true do |f|
 
           .form-group
             %label(for="nickname")ニックネーム
             %span.form-require 必須
             .form-nickname
-              = f.text_field :nickname, class: 'input-default', placeholder: "例）フリマ太郎"
+              = f.text_field :nickname, class: 'input-default', placeholder: "例）ヤーマダ"
 
           .form-group
             %label(for="email")メールアドレス
