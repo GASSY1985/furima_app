@@ -5,7 +5,7 @@
   .account-page__header
     .account-page__header__banner
       %a{:href => "https://www.mercari.com/jp/"}
-        %img{:alt => "furima", :src => "images/material/logo/logo.png"}/
+        %img{:alt => "furima", :src => "../../material/logo/logo.png"}/
       -# バナーの反映方法調べる
   .account-page__main
     .account-page__main--head
@@ -90,3 +90,32 @@
               %a{:href => "/jp/tos_list/", :target => "_blank"} 利用規約
               に同意したものとみなします
           = f.submit '登録・送信', class: 'submit'
+
+          .form-group
+          %p.privacy-info
+            %a{:href => "/jp/help_center/article/423/", :target => "_blank"}
+              本人情報の登録について
+              -# %i.icon-arrow-right
+
+          .form-group
+          %p.privacy-policy
+            This site is protected by reCAPTCHA and the Google
+            %a{:href => "https://policies.google.com/privacy", :target => "_blank"} Privacy Policy
+            and
+            %a{:href => "https://policies.google.com/terms", :target => "_blank"} Terms of Service
+            apply.
+
+  .account-page__footer
+    %ul.caution
+      %li
+        %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
+      %li
+        %a{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
+      %li
+        %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
+
+    %a.footer-logo{:href => "https://www.mercari.com/jp/"}
+      %img{:alt => "furima", :height => "65", :src => "#", :width => "80"}/
+
+    %p.footer-inc
+      %small © TEAM-S, Inc.
