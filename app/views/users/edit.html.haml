@@ -6,7 +6,7 @@
   .sign_in-page__header
     .sign_in-page__header__banner
       %a{:href => "https://www.mercari.com/jp/"}
-        %img{:alt => "furima", :src => "../../material/logo/logo.png"}/
+        = image_tag "/material/logo/logo.png" ,alt: "logo", class: "banner", width: "120px", height: "33px"
       -# バナーの反映方法調べる
   .sign_in-page__main
     .sign_in-page__main--inner
@@ -20,12 +20,12 @@
 
           .form-group
             .form-email
-              = f.text_field :email, class: 'input-default has-error', placeholder: "メールアドレス"
+              = f.email_field :email, class: 'input-default has-error', placeholder: "メールアドレス"
               -# メールアドレスが入力されていない場合、注意喚起が必要
 
           .form-group
             .form-password
-              = f.text_field :password, class: 'input-default', placeholder: "パスワード", autocomplete: "off"
+              = f.text_field :password, class: 'input-default', placeholder: "パスワード"
 
 
           .form-group
@@ -47,7 +47,7 @@
         %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
 
     %a.footer-logo{:href => "https://www.mercari.com/jp/"}
-      %img{:alt => "furima", :height => "65", :src => "#", :width => "80"}/
+      = image_tag "/material/logo/logo.png" ,alt: "logo", class: "banner"
 
     %p.footer-inc
       %small © TEAM-S, Inc.
