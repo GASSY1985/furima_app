@@ -85,8 +85,45 @@
                   %option{:value => "1"} 1
                   %option{:value => "2"} 2
                 日
-                %p.form-caution 
-                  ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+
+          .form-group
+            %label(for="zip")郵便番号
+            %span.form-require 必須
+            .form-zip
+              = f.text_field :zip, class: 'input-default', placeholder: "例）777-7777"
+
+          .form-group
+            %label(for="prefectures")都道府県
+            %span.form-require 必須
+            .form-prefectures
+              = f.text_field :prefectures, class: 'input-default', placeholder: "例）和歌山県"
+
+          .form-group
+            %label(for="municipality")市区町村
+            %span.form-require 必須
+            .form-municipality
+              = f.text_field :municipality, class: 'input-default', placeholder: "例）山田市"
+
+          .form-group
+            %label(for="address")番地
+            %span.form-require 必須
+            .form-address
+              = f.text_field :address, class: 'input-default', placeholder: "例）山田山"
+
+          .form-group
+            %label(for="building")建物名
+            %span.form-any 任意
+            .form-building
+              = f.text_field :building, class: 'input-default', placeholder: "例）メゾンヤマダ777"
+
+          .form-group
+            %label(for="phone_number")電話番号
+            %span.form-any 任意
+            .form-phone_number
+              = f.text_field :phone_number, class: 'input-default', placeholder: "例）08077777777"
+
+              %p.form-caution 
+                ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 
           .form-group
             %p.submit-caution

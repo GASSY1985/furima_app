@@ -46,7 +46,7 @@
               font-weight: 600;
               font-weight: bold;
               }
-              span{
+              span.form-require{
               background-color: #3CCACE;
               margin: 0 0 0 8px;
               padding: 2px 4px;
@@ -55,6 +55,15 @@
               font-size: 12px;
               vertical-align: top;
               }
+              span.form-any{
+                background-color: lightgray;
+                margin: 0 0 0 8px;
+                padding: 2px 4px;
+                border-radius: 2px;
+                color: #fff;
+                font-size: 12px;
+                vertical-align: top;
+                }
               .input-default{
                 width: 100%;
                 margin: 8px 0 0;
