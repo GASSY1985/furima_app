@@ -13,8 +13,8 @@
       .sell-page__main--inner__content
         = form_with model: @users, local: true do |f|
 
-          .sell-upload
-            %h3.sell-upload-head 出品画像
+          .form-group
+            %h2.sell-upload-head 出品画像
             %span.form-require 必須
             %p 最大10枚までアップロードできます
 
@@ -31,7 +31,7 @@
             %label(for="text")商品の説明
             %span.form-require 必須
             .form-text
-              = f.text_area :text, class: 'input-default', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+              = f.text_area :text, class: 'input-default-large', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
 
           .form-group
             %label(for="name")カテゴリー
