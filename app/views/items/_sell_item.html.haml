@@ -12,141 +12,145 @@
     .sell-page__main--inner
       .sell-page__main--inner__content
         = form_with model: @users, local: true do |f|
+          .pict-form
+            .form-group
+              %label.pict(for="pict")出品画像
+              %span.form-require 必須
+              %p.pict-caution 最大10枚までアップロードできます
 
-          .form-group
-            %h2.sell-upload-head 出品画像
-            %span.form-require 必須
-            %p 最大10枚までアップロードできます
+              .sell-upload-pict
 
-            .sell-upload-dropbox
-              = image_tag "/material/icon/icon_camera.png" ,alt: "camera", class: "camera", width: "120px", height: "33px"              
+          .base-info
+            .form-group
+              %label(for="name")商品名
+              %span.form-require 必須
+              .form-name
+                = f.text_field :name, class: 'input-default', placeholder: "商品名（最大40文字まで）"
 
-          .form-group
-            %label(for="name")商品名
-            %span.form-require 必須
-            .form-name
-              = f.text_field :name, class: 'input-default', placeholder: "商品名（最大40文字まで）"
+            .form-group
+              %label(for="text")商品の説明
+              %span.form-require 必須
+              .form-text
+                = f.text_area :text, class: 'input-default-large', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
 
-          .form-group
-            %label(for="text")商品の説明
-            %span.form-require 必須
-            .form-text
-              = f.text_area :text, class: 'input-default-large', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+          .detail-info
+            .form-group
+              %label(for="name")カテゴリー
+              %span.form-require 必須
+              .category-select-wrap
+                .select-wrap
+                  %i.icon-arrow-bottom
+                  %select{:category => "category_id"}>
+                    %option{:value => ""} -
+                    %option{:value => "ニット"} ニット
+                .select-wrap
+                  %i.icon-arrow-bottom
+                  %select{:category => "category_id"}>
+                    %option{:value => ""} -
+                    %option{:value => "ハイゲージ"} ハイゲージ
+                .select-wrap
+                  %i.icon-arrow-bottom
+                  %select{:category => "category_id"}>
+                    %option{:value => ""} -
+                    %option{:value => "長袖"} 長袖
+                    -# カテゴリーの引っ張り方よく調べる。めっちゃ難しそう
 
-          .form-group
-            %label(for="name")カテゴリー
-            %span.form-require 必須
-            .category-select-wrap
-              .select-wrap
-                %i.icon-arrow-bottom
-                %select{:category => "category_id"}>
-                  %option{:value => ""} -
-                  %option{:value => "ニット"} ニット
-              .select-wrap
-                %i.icon-arrow-bottom
-                %select{:category => "category_id"}>
-                  %option{:value => ""} -
-                  %option{:value => "ハイゲージ"} ハイゲージ
-              .select-wrap
-                %i.icon-arrow-bottom
-                %select{:category => "category_id"}>
-                  %option{:value => ""} -
-                  %option{:value => "長袖"} 長袖
-                  -# カテゴリーの引っ張り方よく調べる。めっちゃ難しそう
+            .form-group
+              %label(for="size")サイズ
+              %span.form-require 必須
+              .category-select-wrap
+                .select-wrap
+                  %i.icon-arrow-bottom
+                  %select{:size => "size"}>
+                    %option{:value => ""} -
+                    %option{:value => "XXS以下"} XXS以下
 
-          .form-group
-            %label(for="size")サイズ
-            %span.form-require 必須
-            .category-select-wrap
-              .select-wrap
-                %i.icon-arrow-bottom
-                %select{:size => "size"}>
-                  %option{:value => ""} -
-                  %option{:value => "XXS以下"} XXS以下
+            .form-group
+              %label(for="brand_id")ブランド名
+              %span.form-any 任意
+              .form-text
+                = f.text_field :brand_id, class: 'input-default', placeholder: "例）メゾンマルタンマルジェラ"
 
-          .form-group
-            %label(for="brand_id")ブランド名
-            %span.form-any 任意
-            .form-text
-              = f.text_field :brand_id, class: 'input-default', placeholder: "例）メゾンマルタンマルジェラ"
+            .form-group
+              %label(for="status")商品の状態
+              %span.form-require 必須
+              .category-select-wrap
+                .select-wrap
+                  %i.icon-arrow-bottom
+                  %select{:status => "status"}>
+                    %option{:value => ""} -
+                    %option{:value => "新品・未使用"} 新品・未使用
 
-          .form-group
-            %label(for="status")商品の状態
-            %span.form-require 必須
-            .category-select-wrap
-              .select-wrap
-                %i.icon-arrow-bottom
-                %select{:status => "status"}>
-                  %option{:value => ""} -
-                  %option{:value => "新品・未使用"} 新品・未使用
+          .shipping-info
+            %h.shipping-caution 
+              ※ 配送料について
 
-          %h.shipping-caution 
-            ※ 配送料について
+            .form-group
+              %label(for="shipping_charges")配送料の負担
+              %span.form-require 必須
+              .category-select-wrap
+                .select-wrap
+                  %i.icon-arrow-bottom
+                  %select{:shipping_charges => "shipping_charges"}>
+                    %option{:value => ""} -
+                    %option{:value => "送料込み（出品者負担）"} 送料込み（出品者負担）
+                    %option{:value => "着払い（購入者負担）"} 着払い（購入者負担）
 
-          .form-group
-            %label(for="shipping_charges")配送料の負担
-            %span.form-require 必須
-            .category-select-wrap
-              .select-wrap
-                %i.icon-arrow-bottom
-                %select{:shipping_charges => "shipping_charges"}>
-                  %option{:value => ""} -
-                  %option{:value => "送料込み（出品者負担）"} 送料込み（出品者負担）
-                  %option{:value => "着払い（購入者負担）"} 着払い（購入者負担）
+            .form-group
+              %label(for="shipping_area")発送元の地域
+              %span.form-require 必須
+              .category-select-wrap
+                .select-wrap
+                  %i.icon-arrow-bottom
+                  %select{:shipping_area => "shipping_area"}>
+                    %option{:value => ""} -
+                    %option{:value => "TOKYO ONLY"} TOKYO ONLY
 
-          .form-group
-            %label(for="shipping_area")発送元の地域
-            %span.form-require 必須
-            .category-select-wrap
-              .select-wrap
-                %i.icon-arrow-bottom
-                %select{:shipping_area => "shipping_area"}>
-                  %option{:value => ""} -
-                  %option{:value => "TOKYO ONLY"} TOKYO ONLY
+            .form-group
+              %label(for="days_to_ship")発送までの日数
+              %span.form-require 必須
+              .category-select-wrap
+                .select-wrap
+                  %i.icon-arrow-bottom
+                  %select{:days_to_ship => "days_to_ship"}>
+                    %option{:value => ""} -
+                    %option{:value => "1-2日で発送"} 1-2日で発送
+                    %option{:value => "2-3日で発送"} 2-3日で発送
+                    %option{:value => "4-7日で発送"} 4-7日で発送
 
-          .form-group
-            %label(for="days_to_ship")発送までの日数
-            %span.form-require 必須
-            .category-select-wrap
-              .select-wrap
-                %i.icon-arrow-bottom
-                %select{:days_to_ship => "days_to_ship"}>
-                  %option{:value => ""} -
-                  %option{:value => "1-2日で発送"} 1-2日で発送
-                  %option{:value => "2-3日で発送"} 2-3日で発送
-                  %option{:value => "4-7日で発送"} 4-7日で発送
+          .price-info
+            %h.sell-price 
+              販売価格（300〜9,999,999）
 
-          %h.sell-price 
-            販売価格（300〜9,999,999）
+            .form-group
+              %label(for="price")価格
+              %span.form-require 必須
+              %p.yen ¥
+              .form-text
+                = f.text_field :price, class: 'input-default', placeholder: "例）300"
 
-          .form-group
-            %label(for="price")価格
-            %span.form-require 必須
-            %p.yen ¥
-            .form-text
-              = f.text_field :price, class: 'input-default', placeholder: "例）300"
+            %p 販売手数料（10%）
 
-          %p 販売手数料（10%）
+            %p 販売利益
 
-          %p 販売利益
+          .subimit-data
+            .form-group
+              %p.submit-caution
+                %p
+                  %a{:href => "/jp/help_center/getting_started/prohibited_items/", :target => "_blank"} 禁止されている出品
+                  、
+                  %a{:href => "/jp/help_center/getting_started/prohibited_conduct/", :target => "_blank"} 行為
+                  を必ずご確認ください。
+                %p
+                  またブランド品でシリアルナンバー等がある場合はご記載ください。
+                  %a{:href => "/jp/help_center/getting_started/counterfeit_goods/", :target => "_blank"} 偽ブランドの販売
+                  は犯罪であり処罰される可能性があります。
+                %p
+                  また、出品をもちまして
+                  %a{:href => "/jp/seller_terms/"} 加盟店規約
+                  に同意したことになります。
 
-          .form-group
-            %p.submit-caution
-              %p
-                %a{:href => "/jp/help_center/getting_started/prohibited_items/", :target => "_blank"} 禁止されている出品
-                、
-                %a{:href => "/jp/help_center/getting_started/prohibited_conduct/", :target => "_blank"} 行為
-                を必ずご確認ください。
-              %p
-                またブランド品でシリアルナンバー等がある場合はご記載ください。
-                %a{:href => "/jp/help_center/getting_started/counterfeit_goods/", :target => "_blank"} 偽ブランドの販売
-                は犯罪であり処罰される可能性があります。
-              %p
-                また、出品をもちまして
-                %a{:href => "/jp/seller_terms/"} 加盟店規約
-                に同意したことになります。
-
-          = f.submit '登録・送信', class: 'submit'
+            = f.submit '登録・送信', class: 'submit'
 
   .sell-page__footer
     %ul.caution
