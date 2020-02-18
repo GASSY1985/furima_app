@@ -37,7 +37,7 @@
           .contents
             .contents-info 商品の詳細
             .form-group
-              %label(for="name")カテゴリー
+              %label(for="category")カテゴリー
               %span.form-require 必須
               .category-select-wrap
                 .select-wrap
@@ -49,13 +49,12 @@
                 .select-wrap
                   %i.icon-arrow-bottom
                   = f.select :category_id, [["","-"],["長袖","長袖"]]
-                    -# カテゴリーの引っ張り方よく調べる。めっちゃ難しそう
 
             .form-group
-              %label(for="brand_id")ブランド名
+              %label(for="brand_name")ブランド名
               %span.form-any 任意
               .form-text
-                = f.text_field :brand_id, class: 'input-default', placeholder: "例）メゾンマルタンマルジェラ"
+                = f.text_field :brand_name, class: 'input-default', placeholder: "例）メゾンマルタンマルジェラ"
 
             .form-group
               %label(for="status")商品の状態
@@ -92,7 +91,7 @@
               .category-select-wrap
                 .select-wrap
                   %i.icon-arrow-bottom
-                  = f.select :shipping_area, [["","-"],["1-2日で発送","1-2日で発送"],["2-3日で発送","2-3日で発送"],["4-7日で発送","4-7日で発送"]]
+                  = f.select :days_to_ship, [["","-"],["1-2日で発送","1-2日で発送"],["2-3日で発送","2-3日で発送"],["4-7日で発送","4-7日で発送"]]
 
           .contents
             .contents-info
@@ -114,8 +113,7 @@
                 .form-group__fee--left
                   販売手数料（10%）
                 .form-group__fee--right
-                  %price = 10000 * 0.1%
-                  -# ¥ 1,000
+                  ¥ 1,000
 
               .form-group__border
 
