@@ -135,6 +135,11 @@
                     margin-left: 10px;
                     text-align: right;
                     padding-right: 10px;
+                    border-color: #0099e8;
+                    border-radius: 4px;
+                    line-height: 1.5;
+                    background: #fff;
+                    border: 1px solid #ccc;
                   }
                 }
               }
@@ -154,7 +159,6 @@
                   width: 80%;
                   text-align: right;
                   float: right;
-
                 }
               }
 
@@ -172,6 +176,7 @@
                 &--right{
                   width: 50%;
                   text-align: right;
+                  font-size: 34px;
                   float: right;
                 }
               }
@@ -221,25 +226,40 @@
                 line-height: 1.5;
                 color: gray;
               }
-            }
 
-            .submit{
-              background: #3CCACE;
-              border: 1px solid #3CCACE;
-              color: #fff;
-              width: 100%;
-              line-height: 48px;
-              font-size: 14px;
-              text-align: center;
-              p.submit-caution{
-                text-align: center;
+              .submit-caution{
+               line-height: 1.5;
                 a{
                   text-decoration: none;
                   color: #0099e8;
                 }
               }
-
             }
+
+            .btn{
+              .submit{
+                background: #3CCACE;
+                border: 1px solid #3CCACE;
+                color: #fff;
+                width: 100%;
+                line-height: 48px;
+                font-size: 14px;
+                text-align: center;
+                text-decoration: none;
+                margin: 40px 0 auto;
+              }
+              .btn-redirect{
+                background: #aaa;
+                border: 1px solid #aaa;
+                color: #fff;
+                width: 45%;
+                line-height: 48px;
+                font-size: 14px;
+                text-align: center;
+                text-decoration: none;
+                margin: 24px auto 0;
+              }
+            }  
       }
     }
   }
@@ -253,6 +273,7 @@
     text-align: center;
     ul.caution{
       font-size: 12px;
+      padding-top: 40px;
       li{
         padding: 10px 0;
         a{
