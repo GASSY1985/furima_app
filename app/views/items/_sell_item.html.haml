@@ -11,8 +11,9 @@
       商品の情報を入力
     .sell-page__main--inner
       .sell-page__main--inner__content
-        = form_with model: @users, local: true do |f|
-          .pict-form
+        = form_with model: @items, local: true do |f|
+
+          .contents
             .form-group
               %label.pict(for="pict")出品画像
               %span.form-require 必須
@@ -20,7 +21,7 @@
 
               .sell-upload-pict
 
-          .base-info
+          .contents
             .form-group
               %label(for="name")商品名
               %span.form-require 必須
@@ -33,7 +34,8 @@
               .form-text
                 = f.text_area :text, class: 'input-default-large', placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
 
-          .detail-info
+          .contents
+            .contents-info 商品の詳細
             .form-group
               %label(for="name")カテゴリー
               %span.form-require 必須
@@ -56,16 +58,6 @@
                     -# カテゴリーの引っ張り方よく調べる。めっちゃ難しそう
 
             .form-group
-              %label(for="size")サイズ
-              %span.form-require 必須
-              .category-select-wrap
-                .select-wrap
-                  %i.icon-arrow-bottom
-                  %select{:size => "size"}>
-                    %option{:value => ""} -
-                    %option{:value => "XXS以下"} XXS以下
-
-            .form-group
               %label(for="brand_id")ブランド名
               %span.form-any 任意
               .form-text
@@ -81,9 +73,10 @@
                     %option{:value => ""} -
                     %option{:value => "新品・未使用"} 新品・未使用
 
-          .shipping-info
-            %h.shipping-caution 
-              ※ 配送料について
+          .contents 
+            .contents-info
+              .caution 配送について
+              %a.form-question{:href => "/jp/help_center/article/68/", :target => "_blank"} ?
 
             .form-group
               %label(for="shipping_charges")配送料の負担
@@ -118,22 +111,37 @@
                     %option{:value => "2-3日で発送"} 2-3日で発送
                     %option{:value => "4-7日で発送"} 4-7日で発送
 
-          .price-info
-            %h.sell-price 
-              販売価格（300〜9,999,999）
+          .contents
+            .contents-info
+              .caution 販売価格（300〜9,999,999）
+              %a.form-question{:href => "/jp/help_center/article/64/", :target => "_blank"} ?
 
             .form-group
-              %label(for="price")価格
-              %span.form-require 必須
-              %p.yen ¥
-              .form-text
-                = f.text_field :price, class: 'input-default', placeholder: "例）300"
+              .form-group__price
+                .form-group__price--left
+                  %label(for="price")価格
+                  %span.form-require 必須
+                .form-group__price--right
+                  ¥
+                  = f.text_field :price, class: 'input-default-price', placeholder: "例）300"
 
-            %p 販売手数料（10%）
+              .form-group__border
 
-            %p 販売利益
+              .form-group__fee
+                .form-group__fee--left
+                  販売手数料（10%）
+                .form-group__fee--right
+                  ¥
 
-          .subimit-data
+              .form-group__border
+
+              .form-group__profit
+                .form-group__profit--left
+                  販売利益
+                .form-group__profit--right
+                  ¥
+
+          .contents
             .form-group
               %p.submit-caution
                 %p
